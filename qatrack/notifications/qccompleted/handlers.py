@@ -6,9 +6,9 @@ from django.db.models import Q
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 from django.utils import timezone
+
 from django_q.models import Schedule
 from django_q.tasks import schedule
-
 from qatrack.qa.models import TestListInstance
 from qatrack.qa.signals import testlist_complete
 from qatrack.qatrack_core.email import send_email_to_users

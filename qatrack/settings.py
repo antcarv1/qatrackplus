@@ -10,11 +10,14 @@ import os
 import sys
 
 import matplotlib
+import django
+from django.utils.translation import gettext
+django.utils.translation.ugettext = gettext
 
 matplotlib.use("Agg")
 
 # -----------------------------------------------------------------------------
-DEBUG = False
+DEBUG = True
 DEBUG_TOOLBAR = False
 
 # Who to email when server errors occur
@@ -196,7 +199,7 @@ TEMPLATES = [
         ],
         'APP_DIRS': True,
         'OPTIONS': {
-            'debug': False,
+            'debug': True,
             'context_processors': [
                 # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
                 # list if you haven't customized them:
@@ -236,6 +239,7 @@ INSTALLED_APPS = [
     'django_q',
     'django_comments',
     'formtools',
+    'qatrack.form_utils',
     'django_filters',
     'rest_framework',
     'rest_framework_filters',
@@ -261,6 +265,7 @@ INSTALLED_APPS = [
     'qatrack.attachments',
     'qatrack.reports',
     'admin_views',
+    'qatrack.propel_base'
 ]
 
 
@@ -739,7 +744,7 @@ for path in chrome_paths:
 # local_settings contains anything that should be overridden
 # based on site specific requirements (e.g. deployment, development etc)
 
-from .local_settings import *  # noqa: F403, F401, E402
+# from .local_settings import *  # noqa: F403, F401, E402
 
 
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
